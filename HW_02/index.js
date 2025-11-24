@@ -8,16 +8,21 @@ let txt1;
 let txt2;
 let btn;
 let lblRes;
+let operationSelect;   // <--- added for step 1
+
 function pageLoaded() 
 {
     txt1 = document.getElementById("txt1");
     txt2 = document.querySelector("#txt2");
     btn = document.getElementById("btnCalc");
     lblRes = document.getElementById("lblRes");
+
+    // Get reference to dropdown (step 1)
+    operationSelect = document.getElementById("operation");
+
     btn.addEventListener("click", ()=>{
         calculate();
     });
-    
 }
 
 function calculate()
@@ -32,8 +37,22 @@ function calculate()
         lblRes.innerText = "Invalid Input";
     }
     else{
-        let res = num1+num2;
-        lblRes.innerText = res.toFixed(2);
+        let res;
+
+        // Step 1: operation menu
+        switch (operationSelect.value) {
+            case "add": res = num1 + num2; break;
+            case "sub": res = num1 - num2; break;
+            case "mul": res = num1 * num2; break;
+            case "div":
+                res = (num2 === 0) ? "Error" : num1 / num2;
+                break;
+        }
+
+        if (res === "Error")
+            lblRes.innerText = "Error";
+        else
+            lblRes.innerText = res.toFixed(2);
     }
 }
 
@@ -103,4 +122,3 @@ function demoNative() {
     //--Print to log/output
     print(out);
 }
-
