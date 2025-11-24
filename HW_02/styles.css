@@ -1,15 +1,16 @@
 body {
     background-color: #111 !important;
-    color: #ff69c4 !important; /* brighter neon */
+    color: #ff69c4 !important;
     font-family: "Courier New", monospace !important;
 }
 
-/* BOX around inputs */
+/* Pink box */
 .bracket-box {
     border: 2px solid #ff69c4;
     margin: 8px;
     padding: 12px;
     border-radius: 8px;
+    max-width: 260px;     /* <<< makes the boxes smaller */
 }
 
 /* Inputs */
@@ -18,33 +19,37 @@ body {
     color: #ff69c4 !important;
     border: none !important;
     font-size: 18px !important;
-    text-align: center collor white !important;
-    
+    text-align: center !important;
 }
 
-/* focus */
 .bracket-input:focus {
-    box-shadow: none !important;
     outline: none !important;
+    box-shadow: none !important;
 }
 
-/* Dotted line EXACTLY like before */
+/* Bright placeholders */
+.bracket-input::placeholder,
+#output::placeholder {
+    color: #ff69c4 !important;
+    opacity: 1 !important;
+}
+
+/* Dashed line */
 .divider {
-    width: 80%;
+    width: 100%;
     height: 2px;
-    background-image: linear-gradient(to right, #ff69c4 20%, rgba(0,0,0,0) 0%);
-    background-size: 12px 2px;
+    background-image: linear-gradient(to right, #ff69c4 25%, rgba(0,0,0,0) 0%);
+    background-size: 14px 2px;
     background-repeat: repeat-x;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
 }
 
-/* Result */
 .result-text {
     color: #ff69c4;
-    font-size: 24px;
+    font-size: 20px;
+    text-align: left;
 }
 
-/* Logs */
 #output {
     width: 100%;
     height: 200px;

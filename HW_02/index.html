@@ -12,55 +12,55 @@
 
 <body class="container py-4">
 
-    <div class="container mt-4">
+<div class="container mt-4">
 
-        <!-- ROW 1 -->
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 bracket-box">
-                <input id="txt1" class="form-control bracket-input" type="text" placeholder="First Number">
-            </div>
+    <!-- 4 ITEM ROW -->
+    <div class="row justify-content-start">
 
-            <div class="col-12 col-md-6 col-lg-4 bracket-box">
-                <input id="txt2" class="form-control bracket-input" type="text" placeholder="Second Number">
-            </div>
+        <div class="col-6 col-md-3 col-lg-3 bracket-box">
+            <input id="txt1" class="form-control bracket-input" type="text" placeholder="First Number">
         </div>
 
-        <!-- ROW 2 -->
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 bracket-box">
-                <select id="operation" class="form-select bracket-input">
-                    <option value="add">+</option>
-                    <option value="sub">-</option>
-                    <option value="mul">*</option>
-                    <option value="div">/</option>
-                </select>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4 bracket-box">
-                <button id="btnCalc" class="btn bracket-input w-100">=</button>
-            </div>
+        <div class="col-6 col-md-3 col-lg-3 bracket-box">
+            <input id="txt2" class="form-control bracket-input" type="text" placeholder="Second Number">
         </div>
 
-        <!-- DIVIDER LINE -->
-        <div class="divider"></div>
-
-        <!-- RESULT directly under line -->
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 bracket-box">
-                <h3 id="lblRes" class="result-text"></h3>
-            </div>
+        <div class="col-6 col-md-3 col-lg-3 bracket-box">
+            <select id="operation" class="form-select bracket-input">
+                <option value="add">+</option>
+                <option value="sub">-</option>
+                <option value="mul">*</option>
+                <option value="div">/</option>
+            </select>
         </div>
 
-        <!-- LOGS -->
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 bracket-box">
-                <textarea id="output" placeholder="Logs..."></textarea>
-            </div>
+        <div class="col-6 col-md-3 col-lg-3 bracket-box">
+            <button id="btnCalc" class="btn bracket-input w-100">=</button>
         </div>
-
     </div>
 
-    <script src="index.js"></script>
-</body>
+    <!-- FIRST LINE -->
+    <div class="divider"></div>
 
+    <!-- RESULT -->
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 bracket-box">
+            <h3 id="lblRes" class="result-text"></h3>
+        </div>
+    </div>
+
+    <!-- SECOND LINE (between result & logs) -->
+    <div class="divider"></div>
+
+    <!-- LOGS -->
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-8 bracket-box">
+            <textarea id="output" placeholder="Logs..."></textarea>
+        </div>
+    </div>
+
+</div>
+
+<script src="index.js"></script>
+</body>
 </html>

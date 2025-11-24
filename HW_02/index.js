@@ -6,7 +6,7 @@ let txt1;
 let txt2;
 let btn;
 let lblRes;
-let operationSelect;
+let op;
 
 function pageLoaded() 
 {
@@ -14,40 +14,42 @@ function pageLoaded()
     txt2 = document.getElementById("txt2");
     btn = document.getElementById("btnCalc");
     lblRes = document.getElementById("lblRes");
-    operationSelect = document.getElementById("operation");
+    op = document.getElementById("operation");
 
-    btn.addEventListener("click", () => {
-        calculate();
-    });
+    btn.addEventListener("click", calculate);
 }
 
-function calculate()
-{
-    let num1 = parseFloat(txt1.value);
-    let num2 = parseFloat(txt2.value);
+function calculate() {
+    let n1 = parseFloat(txt1.value);
+    let n2 = parseFloat(txt2.value);
 
-    if (isNaN(num1) || isNaN(num2)) {
+    if (isNaN(n1) || isNaN(n2)) {
         lblRes.innerText = "Invalid Input";
-        print("Invalid Input");
+        print("Invalid input");
         return;
     }
 
-    let symbol = "";
-    let res;
+    let result;
+    let symbol;
 
-    switch (operationSelect.value) {
-        case "add": res = num1 + num2; symbol = "+"; break;
-        case "sub": res = num1 - num2; symbol = "-"; break;
-        case "mul": res = num1 * num2; symbol = "*"; break;
+    switch(op.value) {
+        case "add": result = n1 + n2; symbol = "+"; break;
+        case "sub": result = n1 - n2; symbol = "-"; break;
+        case "mul": result = n1 * n2; symbol = "*"; break;
         case "div":
-            if (num2 === 0) {
+            if (n2 === 0) {
                 lblRes.innerText = "Error";
-                print(`${num1} / ${num2} = Error`);
+                print("Division by zero");
                 return;
             }
-            res = num1 / num2;
-            symbol = "/";
-            break;
+            result = n1 / n2; symbol = "/"; break;
     }
 
-    lblRes.innerT
+    lblRes.innerText = result.toFixed(2);
+    print(`${n1} ${symbol} ${n2} = ${result.toFixed(2)}`);
+}
+
+function print(msg) {
+    const ta = document.getElementById("output");
+    ta.value += (ta.value ? "\n" : "") + msg;
+}
