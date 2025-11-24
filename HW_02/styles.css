@@ -4,16 +4,16 @@ body {
     font-family: "Courier New", monospace !important;
 }
 
-/* Pink box */
+/* Pink box around items */
 .bracket-box {
     border: 2px solid #ff69c4;
     margin: 8px;
     padding: 12px;
     border-radius: 8px;
-    max-width: 260px;     /* <<< makes the boxes smaller */
+    max-width: 320px;
 }
 
-/* Inputs */
+/* Inputs style */
 .bracket-input {
     background-color: #111 !important;
     color: #ff69c4 !important;
@@ -27,10 +27,10 @@ body {
     box-shadow: none !important;
 }
 
-/* Bright placeholders */
+/* Bright Placeholder */
 .bracket-input::placeholder,
 #output::placeholder {
-    color: #ff69c4 !important;
+    color: #ff85e0 !important;
     opacity: 1 !important;
 }
 
@@ -44,12 +44,13 @@ body {
     margin: 20px 0;
 }
 
+/* Result text */
 .result-text {
     color: #ff69c4;
     font-size: 20px;
-    text-align: left;
 }
 
+/* Logs textarea */
 #output {
     width: 100%;
     height: 200px;
@@ -60,4 +61,15 @@ body {
     padding: 10px;
     outline: none;
     font-family: "Courier New", monospace;
+}
+
+/* Validation (Step 5) */
+/* Make Bootstrap validation visible on dark mode */
+
+.is-valid {
+    border: 2px solid #4cff4c !important; /* neon green */
+}
+
+.is-invalid {
+    border: 2px solid #ff3b6a !important; /* neon red */
 }
