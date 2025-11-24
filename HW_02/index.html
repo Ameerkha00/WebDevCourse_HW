@@ -6,65 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operation Calculator</title>
 
-    <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<div class="container">
+<body class="container py-4">
 
-    <!-- First Number -->
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 bracket-box">
-            <input id="txt1" class="form-control bracket-input" type="text" placeholder="First Number">
+    <div class="container mt-4">
+
+        <!-- ROW 1 -->
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 bracket-box">
+                <input id="txt1" class="form-control bracket-input" type="text" placeholder="First Number">
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 bracket-box">
+                <input id="txt2" class="form-control bracket-input" type="text" placeholder="Second Number">
+            </div>
         </div>
-    </div>
 
-    <!-- Second Number -->
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 bracket-box">
-            <input id="txt2" class="form-control bracket-input" type="text" placeholder="Second Number">
+        <!-- ROW 2 -->
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 bracket-box">
+                <select id="operation" class="form-select bracket-input">
+                    <option value="add">+</option>
+                    <option value="sub">-</option>
+                    <option value="mul">*</option>
+                    <option value="div">/</option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 bracket-box">
+                <button id="btnCalc" class="btn bracket-input w-100">=</button>
+            </div>
         </div>
-    </div>
 
-    <!-- Operation -->
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 bracket-box">
-            <select id="operation" class="form-select bracket-input">
-                <option value="add">+</option>
-                <option value="sub">-</option>
-                <option value="mul">*</option>
-                <option value="div">/</option>
-            </select>
+        <!-- DIVIDER LINE -->
+        <div class="divider"></div>
+
+        <!-- RESULT directly under line -->
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 bracket-box">
+                <h3 id="lblRes" class="result-text"></h3>
+            </div>
         </div>
-    </div>
 
-    <!-- Equals -->
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 bracket-box text-center">
-            <button id="btnCalc" class="btn bracket-input w-100">=</button>
+        <!-- LOGS -->
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 bracket-box">
+                <textarea id="output" placeholder="Logs..."></textarea>
+            </div>
         </div>
+
     </div>
-
-    <!-- Result -->
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 bracket-box text-center">
-            <h3 id="lblRes" class="result-text"></h3>
-        </div>
-    </div>
-
-    <!-- Logs -->
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 bracket-box">
-            <textarea id="output" placeholder="Logs..."></textarea>
-        </div>
-    </div>
-
-</div>
-
-
 
     <script src="index.js"></script>
 </body>

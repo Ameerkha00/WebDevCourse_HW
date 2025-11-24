@@ -50,12 +50,4 @@ function calculate()
             break;
     }
 
-    lblRes.innerText = res.toFixed(2);
-
-    print(`${num1} ${symbol} ${num2} = ${res.toFixed(2)}`);
-}
-
-function print(msg) {
-    const ta = document.getElementById("output");
-    ta.value += (ta.value ? "\n" : "") + msg;
-}
+    lblRes.innerT
