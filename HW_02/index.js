@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", ()=>{
 
     pageLoaded();
-    //..
 });
 
 let txt1;
