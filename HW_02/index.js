@@ -27,34 +27,49 @@ function pageLoaded()
 
 function calculate()
 {
-    let txt1Text = txt1.value;
-    let num1 = parseFloat(txt1Text);
+    let num1 = parseFloat(txt1.value);
+    let num2 = parseFloat(txt2.value);
 
-    let txt2Text = txt2.value;
-    let num2 = parseFloat(txt2Text);
-
-    if(isNaN(num1) || isNaN(num2)) {
+    if (isNaN(num1) || isNaN(num2)) {
         lblRes.innerText = "Invalid Input";
+        print("Invalid Input");
+        return;
     }
-    else{
-        let res;
 
-        // Step 1: operation menu
-        switch (operationSelect.value) {
-            case "add": res = num1 + num2; break;
-            case "sub": res = num1 - num2; break;
-            case "mul": res = num1 * num2; break;
-            case "div":
-                res = (num2 === 0) ? "Error" : num1 / num2;
-                break;
-        }
+    let symbol = "";
+    let res;
 
-        if (res === "Error")
-            lblRes.innerText = "Error";
-        else
-            lblRes.innerText = res.toFixed(2);
+    switch (operationSelect.value) {
+        case "add": 
+            res = num1 + num2; 
+            symbol = "+"; 
+            break;
+        case "sub": 
+            res = num1 - num2; 
+            symbol = "-"; 
+            break;
+        case "mul": 
+            res = num1 * num2; 
+            symbol = "*"; 
+            break;
+        case "div":
+            if (num2 === 0) {
+                lblRes.innerText = "Error";
+                print(num1 + " / " + num2 + " = Error");
+                return;
+            }
+            res = num1 / num2;
+            symbol = "/";
+            break;
     }
+
+    // Show result above
+    lblRes.innerText = res.toFixed(2);
+
+    // Add to log (textarea)
+    print(`${num1} ${symbol} ${num2} = ${res.toFixed(2)}`);
 }
+
 
 
 
@@ -71,14 +86,16 @@ btn2.addEventListener("click", ()=>{
 //}
 function print(msg) {
 
-    //--Get TextArea Element Reference
     const ta = document.getElementById("output");
 
-    //--Write the MESSAGE to the TEXTAREA
-    if (ta) ta.value = msg;
-    //--Write to CONSOLE if no TEXTAREA
-    else console.log(msg);
+    if (ta) {
+        ta.value += (ta.value ? "\n" : "") + msg;
+    } 
+    else {
+        console.log(msg);
+    }
 }
+
 
 // =============================================
 // STEP 1: JS NATIVE TYPES, USEFUL TYPES & OPERATIONS
