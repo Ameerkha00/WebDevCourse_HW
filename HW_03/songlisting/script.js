@@ -12,21 +12,42 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     //Read Forms Data
+    const id = document.getElementById('songId').value;
     const title = document.getElementById('title').value;
     const url = document.getElementById('url').value;
     const rating = document.getElementById('rating').value; 
 
-    //TODO VALIDATE FIELDS
-    //create JSON OBJ Based on URL title
-    const song = {
-        id: Date.now(),  // Unique ID
-        title: title,
-        url: url,
-        rating: rating,
-        dateAdded: Date.now()
-    };
+    if(id) {
+        // --- UPDATE MODE---
 
-    songs.push(song);
+        const index = songs.findIndex(s => s.id == id);
+
+        songs[index].title = title;
+        songs[index].url = url;
+        songs[index].rating = rating;
+
+        //Reset button to Add Mode
+        submitBtn.innerHTML = '<i class="fas fa-plus"></i> Add Song';
+        submitBtn.classList.remove('btn-primary');
+        submitBtn.classList.add('btn-success');
+
+        document.getElementById('songId').value = '';
+    }
+
+    else{
+        //TODO VALIDATE FIELDS
+        //create JSON OBJ Based on URL title
+        const song = {
+            id: Date.now(),  // Unique ID
+            title: title,
+            url: url,
+            rating: rating,
+            dateAdded: Date.now()
+        };
+
+        songs.push(song);
+    }
+
     saveAndRender();
     //TO DO SAVE  AND RERENDER 
 
@@ -38,8 +59,8 @@ form.addEventListener('submit', (e) => {
 function saveAndRender() {
 
     localStorage.setItem('songs', JSON.stringify(songs));
+    
     //TODO RELOAD UI
-
     renderSongs();
 
 }
@@ -68,8 +89,24 @@ function renderSongs() {
     });
 }
 
+// Edit Song Function
+function editSong(id) {
+    const song = songs.find(s => s.id === id);
+
+    document.getElementById('songId').value = song.id;
+    document.getElementById('title').value = song.title;
+    document.getElementById('url').value = song.url;
+    document.getElementById('rating').value = song.rating;
+
+    // Change button to Update
+    submitBtn.innerHTML = '<i class="fas-save"></i> Update Song';
+    submitBtn.classList.remove('btn-success');
+    submitBtn.classList.add('btn-primary');
+}
+
+
 function deleteSong(id) {
-    if(confirm('Are you sure?')) {
+    if(confirm('Are you sure you want to delete this song?')) {
         // Filter out the song with the matching ID
         songs = songs.filter(song => song.id !== id);
         saveAndRender();
