@@ -48,15 +48,42 @@
 
     <div class="d-flex justify-content-between mb-3">
         <input type="text" id="search" class="form-control w-50" placeholder="Search...">
-        <select id="sort" class="form-select w-25">
-            <option value="newest">Newest First</option>
-            <option value="az">A-Z</option>
-        </select>
+    </div>
+    
+    <div class="card p-2 mb-3">
+        <label class="form-label fw-bold">Sort By:</label>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sort" id="sortName" value="name">
+            <label class="form-check-label" for="sortName">Name (A-Z)</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sort" id="sortDateNew" value="dateNew" checked>
+            <label class="form-check-label" for="sortDateNew">Date (Newest → Oldest)</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sort" id="sortDateOld" value="dateOld">
+            <label class="form-check-label" for="sortDateOld">Date (Oldest → Newest)</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sort" id="sortRating" value="rating">
+            <label class="form-check-label" for="sortRating">Rating (High → Low)</label>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end mb-3">
+        <button id="toggleViewBtn" class="btn btn-secondary">
+            <i class="fas fa-table"></i> Table View
+        </button>
     </div>
 
     <table class="table table-hover">
         <thead>
             <tr>
+                <th>Thumbnail</th>
                 <th>Title</th>
                 <th>Rating</th>
                 <th>Link</th>
@@ -65,6 +92,9 @@
         </thead>
         <tbody id="songList"></tbody>
     </table>
+
+    <div id="cardsContainer" class="row g-3" style="display:none;"></div>
+    
 </div>
 <script src="script.js"></script>
 </body>
