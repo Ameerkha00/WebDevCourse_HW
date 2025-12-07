@@ -124,21 +124,30 @@ function renderSongs() {
 
     let sortedSongs = [...songs];
 
-    if (sortType === 'name') {
-        sortedSongs.sort((a, b) => a.title.localeCompare(b.title));
+    if (sortType === 'nameAZ') {
+        sortedSongs.sort((a, b) => a.title.localeCompare(b.title));     // A-Z
+    }
+
+    else if (sortType === "nameZA") {
+        sortedSongs.sort((a, b) => b.title.localeCompare(a.title));     // Z-A
     }
 
     else if (sortType === "dateNew") {
-        sortedSongs.sort((a, b) => b.dateAdded - a.dateAdded);  // newest first
+        sortedSongs.sort((a, b) => b.dateAdded - a.dateAdded);      // newest first
     }
 
     else if (sortType === "dateOld") {
-        sortedSongs.sort((a, b) => a.dateAdded - b.dateAdded);  // oldest first
+        sortedSongs.sort((a, b) => a.dateAdded - b.dateAdded);      // oldest first
     }
 
     else if (sortType === "rating") {
-        sortedSongs.sort((a, b) => b.rating - a.rating);
+        sortedSongs.sort((a, b) => b.rating - a.rating);    // highest rating first
     }
+
+    else if (sortType === "ratingLow") {
+        sortedSongs.sort((a, b) => a.rating - b.rating);    // lowest rating first
+    }
+
 
 /*------------------------------------------
                 Render sorted list

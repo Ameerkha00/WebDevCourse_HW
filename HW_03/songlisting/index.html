@@ -59,6 +59,11 @@
         </div>
 
         <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sort" id="sortNameZA" value="nameZA">
+            <label class="form-check-label" for="sortNameZA">Name (Z–A)</label>
+        </div>
+
+        <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="sort" id="sortDateNew" value="dateNew" checked>
             <label class="form-check-label" for="sortDateNew">Date (Newest → Oldest)</label>
         </div>
@@ -71,6 +76,11 @@
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="sort" id="sortRating" value="rating">
             <label class="form-check-label" for="sortRating">Rating (High → Low)</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sort" id="sortRatingLow" value="ratingLow">
+            <label class="form-check-label" for="sortRatingLow">Rating (Low → High)</label>
         </div>
     </div>
 
@@ -94,7 +104,7 @@
     </table>
 
     <div id="cardsContainer" class="row g-3" style="display:none;"></div>
-    
+
 </div>
 <script src="script.js"></script>
 </body>
